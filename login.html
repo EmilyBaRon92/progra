@@ -1,0 +1,16 @@
+{% extends "layout2.html" %}
+{% block content %}
+    <center>
+        <form method="post" action="/inicio" >
+            <table>
+                <tr><td colspan="2" style="background-color:#33A8DB; padding-botton:5px; padding-top:5px;"><label>Login</label></td></tr>
+                <tr><td><label>Usuario</label></td></tr>
+                <tr><td><input type="text" name="txtusuario"/ required></td></tr>
+                <tr><td><label>Contraseña</label></td></tr>
+                <tr><td><input type="password" name="txtpassword"/ required></td></tr>
+                <tr><td><input type="submit" value="ingresar"/></td></tr>
+            </table>
+        </form>
+    </center>
+
+{% endblock %}
