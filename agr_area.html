@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<form action="/agrega_area" method="post">
+    <div class="form-group col-md-4">
+    </div>
+    <div class="form-group col-md-4">
+         <div class="col">
+
+         <p><h2> Agregar nueva área </h2></p>
+
+         <p><h4> Nombre:</h4>
+         <p><input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre del área" required>
+
+         <p><h4> Descripción:</h4>
+         <input type="text" class="form-control" name="descripcion" id="descripcion"  placeholder="Descripción del área" align="left" required>
+
+         <br>
+        <button type="submit" class="btn btn-primary">Agrega</button>
+
+        <br>
+        <br>
+        <br>
+
+     </div>
+     </div>
+
+
+</form>
+
+
+{% endblock %}
