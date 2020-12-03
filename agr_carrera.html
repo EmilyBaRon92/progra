@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!--pone el titulo-->
+<head>
+    <meta charset="UTF-8">
+    <title>Carrera</title>
+</head>
+
+<body>
+<!--pone el fondo-->
+    <style>
+        body{ background-color: #FFFFFF;}
+    </style>
+
+{% extends "layout.html" %}
+{% block content %}
+
+<form action="/agr_carrera" method="post">
+        <div class="form-group col-md-4">
+        </div>
+        <div class="form-group col-md-4">
+            <div class="col">
+
+            <p><h2>Agregar nueva carrera</h2><p>
+            <p><h4>Descripción de la carrera:</h4></p>
+            <input type="text"  class="form-control" name="descripcion" id="descripcion" placeholder="Descripción de la carrera" required>
+             <br>
+            <br>
+            <button class="btn btn-primary">Aceptar</button>
+            </div>
+            </div>
+
+</form>
+{% endblock %}
+</body>
+</html>
+

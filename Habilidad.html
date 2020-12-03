@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+<body style="background-color:#FFFFF">
+    <form action="/agrega_habilidad" method="post">
+       <div class="form-group col-md-4">
+            <div class="form-row">
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <p><h2> Habilidad</h2></p>
+                    <p><h4>Descripción:</h4></p>
+                    <input type="text" class="form-control" name="Descripcion" id="Descripcion" placeholder="Descripcion de la Habilidad" required>
+                    <br>
+
+                <br>
+                <button type="submit" class="btn btn-primary">Agrega</button>
+        </div>
+            </div>
+    </form>
+{% endblock %}
+</body>
+
+</html>

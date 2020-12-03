@@ -1,0 +1,118 @@
+{% extends "layout.html" %}
+    {% block content %}
+<body>
+<form action="/modifica_datos/{{dato}}" method="post">
+
+     <p><h2> Editar datos de la empresa</h2></p>
+     <table>
+        <tr>
+            <td>
+                <td>
+         {% for dato in nom %}
+         &nbsp;
+         <p><h3>Nombre de la empresa</h3><p>
+         <input type="text" rows="3" cols="50" class="form-control" placeholder="nombre de empresa" name="Nombre_de_empresa" id="Nombre_de_empresa" value="{{dato.0}}" required>
+        {% endfor %}
+                </td>
+            </td>
+            <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <td>
+         {% for Descripcion in des %}
+
+         <p><h3>Descripcion</h3></p>
+         <input type="text" rows="3" cols="50" class="form-control" placeholder="Descripcion" name="Descripcion" id="Descripcion" value="{{Descripcion.0}}" required>
+        {% endfor %}
+                </td>
+            </td>
+
+            <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <td>
+         {% for Telefono in tel %}
+        <p><h3>Telefono</h3></p>
+        <input type="tel" rows="3" cols="50" class="form-control" placeholder="Telefono" name="Telefono" id="Telefono" value="{{Telefono.0}}" pattern="[0-9]" required>
+        {% endfor %}
+                </td>
+            </td>
+
+            </td>
+
+         </tr>
+         <tr>
+            <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <td>
+        {% for Domicilio in dom %}
+         <p><h3>Domicilio</h3>
+         <input type="text" rows="3" cols="50" class="form-control" placeholder="Domicilio" name="Domicilio" id="Domicilio" value="{{Domicilio.0}}" required>
+        {% endfor %}
+
+                </td>
+            </td>
+            <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <td>
+        {% for Email in ema %}
+         <p><h3>Email</h3></p>
+         <input type="email" rows="3" cols="50" class="form-control" placeholder="Correo" name="Email" id="Email" value="{{Email.0}}" required>
+        {% endfor %}
+
+                </td>
+            </td>
+
+            <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <td>
+         {% for Razon_social in raz %}
+          <p><h3>Razon social</h3></p>
+           <input type="text" rows="3" cols="50" class="form-control" placeholder="Razon social" name="Razon_social" id="Razon_social" value="{{Razon_social.0}}" required>
+        {% endfor %}
+                </td>
+            </td>
+
+
+         </tr>
+         <tr>
+            </td>
+
+            <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <td>
+        {% for Estructura_Juridica in est %}
+        <p><h3>Estructura juridica</h3></p>
+        <input type="text" rows="3" cols="50" class="form-control" placeholder="Estructura juridica" name="Estructura_Juridica" id="Estructura_Juridica" required value="{{Estructura_Juridica.0}}">
+        {% endfor %}
+                </td>
+            </td>
+
+
+            <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <td>
+         {% for Encargado in enc %}
+        <p><h3>Encargado</h3>
+          <input type="text" rows="3" cols="50" class="form-control" placeholder="Encargado" name="Encargado" id="Encargado" value="{{Encargado.0}}" required>
+        {% endfor %}
+
+                </td>
+            </td>
+
+            </td>
+
+            <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            </td>
+
+         </tr>
+
+         </table>
+         <br>
+         <br>
+         <br>
+        <center>
+        <button class="btn btn-primary" type="submit">Actualizar</button>
+
+         </body>
+         </center>
+
+
+            </div>
+        </div>
+</form>
+
+
+{% endblock %}

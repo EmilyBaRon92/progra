@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block content %}
+      <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+       <tbody>
+        <tr>
+          <td color="FFFFFF"valign="top">
+            <br>
+            <h3>Datos registrados</h3>
+            <br>
+            <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+              <thead>
+                <tr>
+                  <td style="color:#FFFFFF" bgcolor="262626">Nombre de empresa</td>
+                  <td style="color:#FFFFFF" bgcolor="262626">Descripcion</td>
+                  <td style="color:#FFFFFF" bgcolor="262626">Estructura Juridica</td>
+                  <td style="color:#FFFFFF" bgcolor="262626">Razon social</td>
+                  <td style="color:#FFFFFF" bgcolor="262626">Email</td>
+
+                  <td style="color:#FFFFFF" bgcolor="262626">Domicilio</td>
+                                  <td style="color:#FFFFFF" bgcolor="262626">Telefono</td>
+                  <td style="color:#FFFFFF" bgcolor="262626">Encargado</td>
+
+                  <td style="color:#FFFFFF" bgcolor="262626"> </td>
+
+                </tr>
+              </thead>
+              <tbody>
+                {% for nivel in niveles %}
+                  <tr>
+                    <td>
+                      {{ nivel.0 }}
+                    </td>
+                        <td>
+                      {{ nivel.1 }}
+                    </td>
+                    <td>
+                      {{ nivel.2 }}
+                    </td>
+                    <td>
+                      {{ nivel.3 }}
+                    </td>
+                    <td>
+                      {{ nivel.4 }}
+                    </td>
+                    <td>
+                      {{ nivel.5 }}
+                    </td>
+                    <td>
+                      {{ nivel.6 }}
+                    </td>
+                    <td>
+                      {{ nivel.7 }}
+                    </td>
+
+
+                        <td bgcolor="#129OC2" width="60">
+                      <center><a href="/ed_datos/{{nivel.0}}" style="color:#FFFFFF;">Editar</a></center>
+                    </td>
+
+
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+{% endblock %}

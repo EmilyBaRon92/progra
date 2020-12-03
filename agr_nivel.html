@@ -1,0 +1,26 @@
+
+    <style>
+        body {background-color: #FFFFFF;}
+    </style>
+
+    {% extends "layout.html" %}
+    {% block content %}
+
+    <form action="/agrega_nivel" method="post">
+
+        <div class="form-group col-md-4">
+        </div>
+        <div class="form-group col-md-4">
+            <div class="col">
+
+         <p><h2>Agregar nivel academico</h2><p>
+         <h4><label>Descripción del nivel: </label></h4>
+                <input typt="text" class="form-control" name="descripcion" id="descripcion" placeholder="Descripción del nivel academico" required>
+
+        <br>
+        <br>
+        <button type="submit" class="btn btn-primary">Agrega</button>
+            </div>
+        </div>
+    </form>
+    {% endblock %}

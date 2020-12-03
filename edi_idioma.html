@@ -1,0 +1,27 @@
+
+{% extends "layout.html" %}
+{% block content %}
+	<form action="/edita_idioma/{{ dato }}" method="post">
+		<div class="form-group col-md-4">
+        </div>
+        <div class="form-group col-md-4">
+            <div class="col">
+
+
+		<p><h2> Editar idioma</h2></p>
+
+				<p><h4>Idioma </h4></p>
+        {% for idioma in idiomas %}
+		 <input type="text" rows="3" cols="50" class="form-control" name="lenguaje" id="lenguaje" maxlength="90" value="{{idioma.0}}" required>
+        {% endfor %}
+		<br>
+        <br>
+		<button type="submit" class="btn btn-primary">Aceptar</button>
+
+			</div>
+			</div>
+
+		</div>
+	</form>
+
+{% endblock %}

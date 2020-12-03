@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block content %}
+<!---- Se crea la tabla donde se colocaran los registros de medio de publicidad--->
+      <table width="100%" border="0" cellpadding="0" cellspacing="0" bordercolor="#000000">
+       <tbody>
+        <tr>
+            <br>
+            <!---- Se agrega la etiqueta para agregar un nuevo medio de publicidad--->
+           <right><h2><a href="/medio_publicidad">Agregar medio de publicidad</a></h2></right>
+           <br>
+           <h3>Medios de publicidad registrados</h3>
+           <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+              <thead>
+                <tr>
+                  <td style="color:#FFFFFF" bgcolor="262626">Descripcion</td>
+                  <td style="color:#FFFFFF" bgcolor="262626"></td>
+                  <td style="color:#FFFFFF" bgcolor="262626"></td>
+                </tr>
+              </thead>
+              <tbody>
+                {% for medio in medios %}
+                  <tr>
+                    <td>
+                      {{ medio.1 }}
+                    </td>
+                    <!---- Se colocan los botones--->
+                    <td bgcolor="#129OC2" width="60">
+                      <center><a href="/ed_medio/{{medio.0}}" style="color:#FFFFFF;">Editar</a></center>
+                    </td>
+                    <td  bgcolor="#00C56C" width="60">
+                      <center><a href="/borrar_medio/{{medio.0}}" style="color:#FFFFFF;">Borrar</a></center>
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+{% endblock %}

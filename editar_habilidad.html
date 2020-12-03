@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="es">
+{% extends "layout.html" %}
+{% block content %}
+<form action="/modifica_habilidad/{{habilidad.0[0]}}" method="post">
+    <div class="form-group col-md-4">
+        </div>
+        <div class="form-group col-md-4">
+            <div class="col">
+
+            <p><h2> Editar Habilidad</h2></p>
+
+            <p><h4> Descripción de la habilidad</h4>
+             <input type="text" rows="3" cols="50" class="form-control" name="descripcion" id="descripcion" maxlength="90" value="{{habilidad.0[1]}}" required>
+
+        <br>
+        <br>
+    <button type="submit" class="btn btn-primary">Actualiza</button>
+
+            </div>
+        </div>
+</form>
+
+{% endblock %}
+</html>
