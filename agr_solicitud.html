@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+{% block content %}
+<body>
+    <form action="/agr_solicitud" method="post">
+
+
+            <p><h2>Solicitud</h2></p>
+            <table>
+	<tr>
+      	<td>
+                	<p><h4>Fecha de solicitud</h4></p>
+
+
+            <input type="date"  name="Fecha"  placeholder="Fecha de solicitud" required>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+ </td>
+ <td>
+		  <p><h4>Vacantes</h4></p>
+
+            <input type="text"  name="vacantes"  placeholder="vacantes" required>
+     </td>
+
+    </tr>
+
+</table>
+<br>
+<br>
+         <table>
+            <td>
+            <select style="background-color: #38E82A; color: #FAFAFA; width:500px"  id="area" name="area" class="form-control" required>
+
+                <option value="">Area</option>
+                {% for area in areas %}
+                 <option style="background-color: #FFFFFF; color:#000000" value="{{area.0}}">{{area.1}}</option>
+                {% endfor %}
+            </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <select style="background-color: #1290C2; color: #FAFAFA; width:500px"  id="puesto" name="puesto" class="form-control" required>
+                        <option value="">Puesto</option>
+                        {% for puesto in puestos %}
+                         <option style="background-color: #FFFFFF; color:#000000" value="{{puesto.0}}">{{puesto.1}}</option>
+                        {% endfor %}
+                    </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</td>
+<td>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</td>
+
+<td>
+
+                <select  style="background-color: #1290C2; color: #FAFAFA; width:500px"  id="Carrera" name="Carrera" class="form-control"required>
+                    <option value="">Carrera</option>
+                    {% for carrera in carreras %}
+                     <option style="background-color: #FFFFFF; color:#000000"value="{{carrera.0}}">{{carrera.1}}</option>
+                    {% endfor %}
+                </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <select style="background-color:#38E82A;  color: #FAFAFA; width:500px"  id="nivel" name="nivel" class="form-control"required>
+                <option value="">Nivel Academico</option>
+                {% for nivel in niveles %}
+                 <option style="background-color: #FFFFFF; color:#000000"value="{{nivel.0}}">{{nivel.1}}</option>
+                {% endfor %}
+            </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+</table>
+            <br>
+            <br>
+            <button class="btn btn-primary">Aceptar</button>
+
+     </form>
+
+{% endblock %}

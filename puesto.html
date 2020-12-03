@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+      <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+       <tbody>
+        <tr>
+           <br>
+           <right><h2><a href="/agregar_puesto">Agregar nuevo puesto</a></h2></right>
+           <br>
+           <h3>Puestos registrados</h3>
+           <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+              <thead>
+
+                <tr>
+                  <td style="color:#FFFFFF" bgcolor="262626">Descripcion</td>
+                  <td style="color:#FFFFFF" bgcolor="262626">Salario anual</td>
+                  <td style="color:#FFFFFF" bgcolor="262626">Beneficios</td>
+                  <td style="color:#FFFFFF" bgcolor="262626">Bonos</td>
+                  <td style="color:#FFFFFF" bgcolor="262626">Aprobacion</td>
+                  <td style="color:#FFFFFF" bgcolor="262626"></td>
+                  <td style="color:#FFFFFF" bgcolor="262626"></td>
+                </tr>
+              </thead>
+              <tbody>
+                {% for puesto in puestos %}
+                  <tr>
+                    <td>
+                      {{ puesto.1 }}
+                    </td>
+                    <td>
+                      {{ puesto.2 }}
+                    </td>
+                    <td>
+                      {{ puesto.3 }}
+                    </td>
+                    <td>
+                      {{ puesto.4 }}
+                    </td>
+                      {% if puesto.5 == 0 %}
+                        <td>si</td>
+                        {%else%}
+                        <td>no</td>
+                        {%endif%}
+
+
+                    <td bgcolor="#129OC2" width="60">
+                      <center><a href="/ed_puesto/{{puesto.0}}" style="color:#FFFFFF;">Editar</a></center>
+                    </td>
+                    <td  bgcolor="#00C56C" width="60">
+                      <center><a href="/bo_puesto/{{puesto.0}}" style="color:#FFFFFF;">Borrar</a></center>
+                    </td>
+
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+<!----->
+
+
+
+
+{% endblock %}

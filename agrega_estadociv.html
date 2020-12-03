@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<body>
+    <!---- Se crea el formulario--->
+    <form action="/agr_estadociv" method="post">
+        <div class="form-group col-md-4">
+        </div>
+        <div class="form-group col-md-4">
+            <div class="col">
+
+                <!---- Se coloca el titulo--->
+            <p><h2>Agregar nuevo estado civil</h2><p>
+            <p><h4>Descripción del estado civil:</h4><div>
+            <input name="descripcion" rows="3" cols="50" class="form-control" placeholder="Descripción de la funcion" required></input>
+            <br>
+            <br>
+
+                <!---- Se colocan los botones--->
+            <button class="btn btn-primary">Aceptar</button>
+            </div>
+        </div>
+     </form>
+{% endblock %}
+</body>

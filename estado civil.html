@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block content %}
+<!---- Se crea la tabla en donde se colocaran los registros de estado civil --->
+      <table width="100%" border="0" cellpadding="0" cellspacing="0" bordercolor="#000000">
+       <tbody>
+        <tr>
+          <!---- Se le asigna un color a la tabla--->
+          <td  bgcolor="#FFFFFF" valign="top">
+            <br>
+            <!---- Se coloca la etiqueta para que se pueda agregar un nuevo estado civil --->
+            <right><h2><a href="/nvo_estadocivil">Agregar nuevo estado civil</a></h2></right>
+            <br>
+            <!---- Se coloca el titulo--->
+            <h3>Estados civiles registrados</h3>
+            <table width="75%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+              <thead>
+                <tr>
+                  <td style="color:#FFFFFF" bgcolor="262626">Descripcion</td>
+                    <td style="color:#FFFFFF" bgcolor="262626"></td>
+                    <td style="color:#FFFFFF" bgcolor="262626"></td>
+                </tr>
+              </thead>
+              <tbody>
+                {% for dato in datos %}
+                  <tr>
+                    <td>
+                      {{ dato.1 }}
+                    </td>
+                    <!---- Se colocan los botones--->
+                    <td bgcolor="#129OC2" width="60">
+                      <center><a  style="color:#FFFFFF;" href="/ed_estadociv/{{dato.0}}" >Editar</a></center>
+                    </td>
+                    <td  bgcolor="#00C56C"  width="60">
+                      <center><a  style="color:#FFFFFF;" href="/bo_estadociv/{{dato.0}}" >Borrar</a></center>
+                    </td>
+
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+
+{% endblock %}

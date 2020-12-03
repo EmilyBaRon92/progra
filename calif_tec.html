@@ -1,0 +1,219 @@
+ {% extends "layout.html" %}
+
+{% block content %}
+
+               <center><h3>Solicitante</h3></center>
+               <div class="form-row">
+
+                  <div class="form-group col-md-2">
+                  <label for="curp">Curp</label>
+                    <input type="text" class="form-control" name="curp" id="curp" value="{{datos.0[0]}}" disabled>
+                </div>
+ <div class="form-group col-md-2">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" class="form-control" name="nombre" id="nombre" value="{{datos.0[2]}}" disabled>
+                    </div>
+ <div class="form-group col-md-2">
+                        <label for="rfc">RFC</label>
+                        <input type="text" class="form-control" name="rfc" id="rfc" value="{{datos.0[1]}}"  disabled>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="telefono">Numero telefonico</label>
+                <input type="text" class="form-control" name="telefono" id="telefono" value="{{datos.0[4]}}"   disabled>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="domicilio">Domicilio</label>
+                        <input type="text" class="form-control" name="domicilio" id="domicilio" value="{{datos.0[3]}}" disabled>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="email">Correo electronico</label>
+                        <input type="email" class="form-control" name="email" id="email" value="{{datos.0[5]}}" disabled>
+                    </div>
+                     <div class="form-group col-md-2">
+                        <label for="nss">Numero de seguridad social</label>
+                        <input type="text" class="form-control" name="nss" id="nss" value="{{datos.0[8]}}" disabled>
+                    </div>
+
+                        <div class="form-group col-md-2">
+                        <label for="edad">Edad</label>
+                        <input type="text" class="form-control" name="edad" id="edad" value="{{datos.0[7]}}"   disabled>
+                    </div>
+
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <div class="form-group col-md-2">
+                      <label for="sexo">Sexo</label>&nbsp;&nbsp;
+
+                    {% if datos.0[6] == 'Hombre' %}
+
+                       <input type="text" name="sexo" value="Hombre" disabled>
+ {% else %}
+ <input type="text" name="sexo" value="Mujer" disabled>
+
+                        {% endif %}
+                        </select>
+                        </div>
+                        <div class="form-group col-md-2">&nbsp;&nbsp;
+
+                       <label for="estadoc">Estado civil</label>
+
+                        <input type="text" name="sexo" value="{{ estados[0][1] }}" disabled>
+
+
+
+
+                    </select>
+
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                   </div>
+                   </div>
+              </div>
+
+<br>
+<br>
+
+
+
+<!-- -----------------------------------------------------------------  -->
+            <br>
+             <form action=""><!--/califica_tecnica_sol/{{ datos.0[0] }}/{{ idSolicitud }}" method="post"-->
+            <center><h3>Habilidades obtenidas</h3></center>
+
+                  <br>
+                  <div class="panel-body">
+                        <center>
+                        <table width="80%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+                          <thead>
+                            <tr>
+                              <td style="color:white;" bgcolor="black">Habilidad</td>
+                              <td style="color:white;" bgcolor="black">Experiencia</td>
+ <td style="color:white;" bgcolor="black">Es Apto?</td>
+ <td style="color:white;" bgcolor="black"></td>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {% for dato in can_habs %}
+                              <tr>
+                                <td>
+                                  {{ dato.2 }}
+                                </td>
+                                <td>
+                                  {{ dato.5 }}
+                                </td>
+                                <td  bgcolor="#129OC2" width="60">
+                                    <center><a href="" style="color:#FFFFFF;">Si</a></center>
+                                </td>
+                                <td  bgcolor="#00C56C" width="60">
+                                    <center><a href="" style="color:#FFFFFF;">NO</a></center>
+                                </td>
+                      </div>
+</td>
+
+                              </tr>
+                            {% endfor %}
+                          </tbody>
+                        </table>
+                        </center>
+                  </div>
+            </div>
+
+<!-- -----------------------------------------------------------------  -->
+            <br>
+            <center><h3>Idiomas aprendidos</h3></center>
+
+
+                  <br>
+                  <div class="panel-body">
+                        <center>
+                        <table width="80%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+                          <thead>
+                            <tr>
+                              <td style="color:white;" bgcolor="black">Idioma</td>
+                              <td style="color:white;" bgcolor="black">Nivel</td>
+                              <td style="color:white;" bgcolor="black">Es Apto?</td>
+                              <td style="color:white;" bgcolor="black"></td>
+
+
+                                </td>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {% for idi in idis %}
+                              <tr>
+                                <td>
+                                  {{ idi.2 }}
+                                </td>
+                                <td>
+                                  {{ idi.5 }}
+                                </td>
+                                <td  bgcolor="#129OC2" width="60">
+                                    <center><a href="" style="color:#FFFFFF;">Si</a></center>
+                                </td>
+                                <td  bgcolor="#00C56C" width="60">
+                                    <center><a href="" style="color:#FFFFFF;">NO</a></center>
+                                </td>
+                      </div>
+                    </td>
+                              </tr>
+                            {% endfor %}
+                          </tbody>
+                        </table>
+                        </center>
+                <br>
+
+                      <center><h3>Nivel Academico</h3></center>
+
+
+                  <br>
+                  <div class="panel-body">
+                        <center>
+                        <table width="80%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+                          <thead>
+                            <tr>
+                              <td style="color:white;" bgcolor="black">Nivel academico</td>
+                                <td style="color:white;" bgcolor="black">Carrera</td>
+                                <td style="color:white;" bgcolor="black">Institucion</td>
+
+                                <td style="color:white;" bgcolor="black">Es Apto?</td>
+                                <td style="color:white;" bgcolor="black"></td>
+
+
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {% for funcionC in nivelesC %}
+                              <tr>
+                                <td>
+                                  {{ funcionC.2 }}
+                                </td>
+                                <td>
+                                  {{ funcionC.7 }}
+                                </td>
+                                   <td>
+                                  {{ funcionC.3 }}
+                                </td>
+                                <td  bgcolor="#129OC2" width="60">
+                                    <center><a href="" style="color:#FFFFFF;">Si</a></center>
+                                </td>
+                                <td  bgcolor="#00C56C" width="60">
+                                    <center><a href="" style="color:#FFFFFF;">NO</a></center>
+                                </td>
+
+                              </tr>
+                            {% endfor %}
+                          </tbody>
+                        </table>
+                        </center>
+
+                  </div>
+            </div>
+              <br>
+        <br>
+        <center><button class="btn btn-primary">Califica</button></center>
+      </form>
+
+{% endblock %}

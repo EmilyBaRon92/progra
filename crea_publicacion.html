@@ -1,0 +1,149 @@
+{% extends "layout.html" %}
+{% block content %}
+<body>
+
+ <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+       <tbody>
+        <tr>
+          <td  bgcolor="#FFFFFF" valign="top">
+            <h3>Datos de la Solicitud</h3>
+            <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+              <thead>
+                <tr>
+                  <td style="color:#FFFFFF" bgcolor="262626">Fecha</td>
+                  <td style="color:#FFFFFF" bgcolor="262626">Area</td>
+                  <td style="color:#FFFFFF" bgcolor="262626">Puesto</td>
+                  <td style="color:#FFFFFF" bgcolor="262626">Vacante</td>
+                  <td style="color:#FFFFFF" bgcolor="262626">Estado</td>
+                </tr>
+              </thead>
+              <tbody>
+
+                  <tr>
+                    <td>
+                      {{ sol.1 }}
+                    </td>
+                     <td>
+                      {{ sol.3 }}
+                    </td>
+                    <td>
+                      {{ sol.5 }}
+                    </td>
+                    <td>
+                      {{ sol.6 }}
+                    </td>
+                      <td>
+                      {{ sol.8 }}
+                    </td>
+
+                  </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+       </tbody>
+ </table>
+           <br>
+
+
+
+                     <h3> Publicaciones registradas </h3>
+                     <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+
+                             <tr>
+                                <td style="color:#FFFFFF" bgcolor="262626">Id.</td>
+                                <td style="color:#FFFFFF" bgcolor="262626">Solicitantes</td>
+                                <td style="color:#FFFFFF" bgcolor="262626">Fec. Publicacion</td>
+                                <td style="color:#FFFFFF" bgcolor="262626">Fec. Cierre</td>
+                                <td style="color:#FFFFFF" bgcolor="262626">Contacto</td>
+                                <td style="color:#FFFFFF" bgcolor="262626">Medio</td>
+                                <td style="color:#FFFFFF" bgcolor="262626"></td>
+
+                             </tr>
+
+
+
+                           {% for publicacion in publicaciones %}
+                              <tr>
+                                <td>
+                                   {{ publicacion.0 }}
+                                </td>
+                                <td>
+                                   {{ publicacion.1 }}
+                                 </td>
+                                 <td>
+                                    {{ publicacion.2 }}
+                                 </td>
+                                 <td>
+                                    {{ publicacion.3 }}
+                                 </td>
+                                  <td>
+                                    {{ publicacion.4 }}
+                                 </td>
+                                  <td>
+                                    {{ publicacion.5 }}
+                                 </td>
+                                 <td bgcolor="#129OC2" width="60">
+                                     <center><a href="/bo_publicacion/{{publicacion.0}}" style="color:#FFFFFF;">Borrar</a></center>
+
+                           {% endfor %}
+
+                 </table>
+                </td>
+              </tr>
+        </tbody>
+    </table>
+
+
+
+<br><center><h3>Nueva publicacion</h3></center><br>
+    <form action="/agrega_publicacion" method="post">
+        <div class="form-row">
+            &nbsp;
+            <div class="col-x3-1">
+                <label for="n_solicitud">Numero de solicitud</label>
+                <input type="text" class="form-control" name="n_solicitud" id="n_solicitud" value="{{ sol.0 }}" readonly>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="fecha_pub">Fecha de publicacion</label>
+                <input type="date" class="form-control" name="fecha_pub" id="fecha_pub" required>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="fecha_cie">Fecha de termino de Publicacion</label>
+                <input type="date" class="form-control" name="fecha_cie" id="fecha_cie" required>
+            </div>
+            <div class="col-x3-1">
+                <label for="n_solicitantes">Numero de solicitantes</label>
+                <input type="text" class="form-control" name="n_solicitantes" id="n_solicitantes" value="{{ sol.6 }}" required>
+            </div>
+        </div>
+        <label for="contacto">Contacto</label>
+        <div class="form-row">
+            &nbsp; &nbsp;
+            <div class="form-group col-md-5">
+                <label for="contacto">Contacto</label>
+                <select name="contacto" id="contacto" class="form-control" style="width:500px" required>
+                    <option value="" selected>Choose...</option>
+                    {% for contacto in contactos %}
+                    <option value="{{ contacto.0 }}"> {{ contacto.1 }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group col-md-5">
+                <label for="medio">Medio de Publicidad</label>
+                <select name="medio" id="medio" class="form-control" style="widht:5000px" required>
+                    <option value="" selected>Choose...</option>
+                    {% for medio in medios %}
+                    <option value="{{ medio.0 }}"> {{ medio.1 }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Agrega</button>
+    </form>
+
+{% endblock %}
+
+
+

@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block content %}
+	<table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+		<tbody>
+			<tr>
+				<td bgcolor="FFFFFF" valign="top">
+					<h3>Solicitudes por publicar o publicadas</h3>
+					<table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor=#000000>
+						<thead>
+							<tr>
+								<td style="color:#FFFFFF" bgcolor="262626">Fecha</td>
+								<td style="color:#FFFFFF" bgcolor="262626">Area</td>
+								<td style="color:#FFFFFF" bgcolor="262626">Puesto</td>
+								<td style="color:#FFFFFF" bgcolor="262626">Vacantes</td>
+								<td style="color:#FFFFFF" bgcolor="262626">Estado</td>
+								<td style="color:#FFFFFF" bgcolor="262626"></td>
+								<td style="color:#FFFFFF" bgcolor="262626"></td>
+							</tr>
+						</thead>
+						<tbody>
+							{% for solicitud in solicitudes %}
+								<tr>
+									<td>
+										{{ solicitud. 1}}
+									</td>
+									<td>
+										{{ solicitud.3 }}
+									</td>
+									<td>
+										{{ solicitud.5 }}
+									</td>
+									<td>
+										{{ solicitud.6 }}
+									</td>
+									<td>
+										{{ solicitud.8 }}
+									</td>
+									<td bgcolor="1290C2" width="60">
+										<center><a style="color:#FFFFFF;" href="/crea_pub/{{solicitud.0}}">Publicar</a></center>
+									</td>
+									<td bgcolor="00C56C" width="60">
+										<center><a style="color:#FFFFFF;" href="/can_solicitud/{{solicitud.0}}">Cancelar</a></center>
+									</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+{% endblock %}

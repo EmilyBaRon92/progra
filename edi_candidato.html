@@ -1,0 +1,277 @@
+ {% extends "layout.html" %}
+
+{% block content %}
+
+            <form class="form-inline" action="/modifica_solicitante/{{datos[0]}}" method="post">
+               <center><h3>Editar solicitante</h3></center>
+               <div class="form-row">
+
+                  <div class="form-group col-md-2">
+                  <label for="curp">Curp</label>
+                    <input type="text" class="form-control" name="curp" id="curp" value="{{datos.0[0]}}" pattern="[A-Z]{4}[0-9]{6}[A-Z]{6}[0-9A-Z]{1}[0-9]{1}" required>
+                </div>
+ <div class="form-group col-md-2">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" class="form-control" name="nombre" id="nombre" value="{{datos.0[2]}}" required>
+                    </div>
+ <div class="form-group col-md-2">
+                        <label for="rfc">RFC</label>
+                        <input type="text" class="form-control" name="rfc" id="rfc" value="{{datos.0[1]}}" pattern="[A-Z]{4}[0-9]{6}[0-9A-Z]{3}" required>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="telefono">Numero telefonico</label>
+                <input type="text" class="form-control" name="telefono" id="telefono" value="{{datos.0[4]}}" pattern="[0-9]{10}"     required>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="domicilio">Domicilio</label>
+                        <input type="text" class="form-control" name="domicilio" id="domicilio" value="{{datos.0[3]}}" required>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="email">Correo electronico</label>
+                        <input type="email" class="form-control" name="email" id="email" value="{{datos.0[5]}}" required>
+                    </div>
+                     <div class="form-group col-md-2">
+                        <label for="nss">Numero de seguridad social</label>
+                        <input type="text" class="form-control" name="nss" id="nss" value="{{datos.0[8]}}" pattern="[0-9]{11}" required>
+                    </div>
+
+                        <div class="form-group col-md-2">
+                        <label for="edad">Edad</label>
+                        <input type="text" class="form-control" name="edad" id="edad" value="{{datos.0[7]}}" pattern="[0-9]{2}"  required>
+                    </div>
+
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <div class="form-group col-md-2">
+                      <label for="sexo">Sexo</label>&nbsp;&nbsp;
+                    <select style="background-color: #1290C2; color: #FAFAFA; width:250px"  id="sexo" name="sexo" class="form-control" required >
+                    {% if datos.0[6] == 'Hombre' %}
+
+                        <option selected="true" value"Hombre">Hombre</option>
+                            <option style="background-color: #FFFFFF; color:#000000" value="Mujer">Mujer</option>
+ {% else %}
+ <option selected="true" value="Mujer">Mujer</option>
+ <option style="background-color: #FFFFFF; color:#000000"  value"Hombre">Hombre</option>
+
+                        {% endif %}
+                        </select>
+                        </div>
+                        <div class="form-group col-md-2">&nbsp;&nbsp;
+
+                       <label for="estadoc">Estado civil</label>
+                    <select style="background-color: #1290C2; color: #FAFAFA; width:250px"  id="estadoc" name="estadoc" class="form-control" required>
+                        {% for estado in estados %}
+                        {% if datos.0[10] ==estado.0 %}
+                        <option selected="true" value="{{ estado.0 }}">{{ estado.1 }}</option>
+ {% else %}
+                         <option style="background-color: #FFFFFF; color:#000000" value="{{estado.0}}">{{estado.1}}</option>
+                        {% endif %}
+                        {% endfor %}
+
+
+
+
+                    </select>
+
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                   </div>
+                   </div>
+              </div>
+
+<br>
+<br>
+              <button type="submit" class="btn btn-primary">Actualiza</button>
+
+            </form>
+<!-- -----------------------------------------------------------------  -->
+            <br>
+            <center><h3>Habilidades obtenidas</h3></center>
+
+             <div class="panel panel-primary">
+                  <div class="panel-heading" >
+                    <form class="form-inline" action="/agrega_hab_solicitante/{{ datos.0[0] }}/{{habs.0[0]}}" method="post">
+                        <div class="form-row">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="hidden" name="can" id="can" value="{{datos.0[0]}}" >
+                             <label for="habil">Habilidad</label>&nbsp;&nbsp;&nbsp;
+                             <select name="habil" id="habil" class="form-control" required>
+                             <option value="" selected>Choose...</option>
+                                 {%
+                                     for hab in habs
+                                 %}
+                                     <option value="{{ hab.0 }}">{{ hab.1 }}</option>
+                                {%   endfor %}
+                             </select>&nbsp;&nbsp;&nbsp;
+                             <label for="expe">Experiencia</label>&nbsp;&nbsp;&nbsp;
+                             <input type="text" class="form-control" name="expe" id="expe" placeholder="tiempo de experiencia" required>&nbsp;&nbsp;&nbsp;
+                         </div>&nbsp;&nbsp;&nbsp;
+                        <button type="submit" class="btn btn-primary">Agrega habilidad</button>
+                    </form>
+                  </div>
+                  <br>
+                  <div class="panel-body">
+                        <center>
+                        <table width="80%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+                          <thead>
+                            <tr>
+                              <td style="color:white;" bgcolor="black">Habilidad</td>
+                              <td style="color:white;" bgcolor="black">Experiencia</td>
+                              <td style="color:white;" bgcolor="black"></td>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {% for dato in can_habs %}
+                              <tr>
+                                <td>
+                                  {{ dato.2 }}
+                                </td>
+                                <td>
+                                  {{ dato.5 }}
+                                </td>
+                                <td  bgcolor="#3C3EC5" width="60">
+                                  <center><a href="/bo_hab_sol/{{dato.0}}/{{dato.4}}" style="color:#FFFFFF;">Borrar</a></center>
+                                </td>
+
+                              </tr>
+                            {% endfor %}
+                          </tbody>
+                        </table>
+                        </center>
+                  </div>
+            </div>
+
+<!-- -----------------------------------------------------------------  -->
+            <br>
+            <center><h3>Idiomas aprendidos</h3></center>
+
+             <div class="panel panel-primary">
+                  <div class="panel-heading" >
+                    <form class="form-inline" action="/agrega_idio_sol/{{ datos.0[0] }}/{{ idiomas.0[0] }}" method="post">
+                        <div class="form-row">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="hidden" name="cani" id="cani" value="{{datos.0[0]}}" >
+                             <label for="idio">Idioma</label>&nbsp;&nbsp;&nbsp;
+                             <select name="idio" id="idio" class="form-control" required>
+                             <option value="" selected>Choose...</option>
+                                 {%
+                                     for idioma in idiomas
+                                 %}
+                                     <option value="{{ idioma.0 }}">{{ idioma.1 }}</option>
+                                {%   endfor %}
+                             </select>&nbsp;&nbsp;&nbsp;
+                             <label for="nive">Nivel</label>&nbsp;&nbsp;&nbsp;
+                             <input type="text" class="form-control" name="nive" id="nive" placeholder="Nivel en el idioma" required>&nbsp;&nbsp;&nbsp;
+                         </div>&nbsp;&nbsp;&nbsp;
+                        <button type="submit" class="btn btn-primary">Agrega Idioma</button>
+                    </form>
+                  </div>
+                  <br>
+                  <div class="panel-body">
+                        <center>
+                        <table width="80%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+                          <thead>
+                            <tr>
+                              <td style="color:white;" bgcolor="black">Idioma</td>
+                              <td style="color:white;" bgcolor="black">Nivel</td>
+                              <td style="color:white;" bgcolor="black"></td>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {% for idi in idis %}
+                              <tr>
+                                <td>
+                                  {{ idi.2 }}
+                                </td>
+                                <td>
+                                  {{ idi.5 }}
+                                </td>
+                                <td  bgcolor="#3C3EC5" width="60">
+                                  <center><a href="/bo_idi_sol/{{ idi.0 }}/{{ idi.4 }}" style="color:#FFFFFF;">Borrar</a></center>
+                                </td>
+
+                              </tr>
+                            {% endfor %}
+                          </tbody>
+                        </table>
+                        </center>
+                <br>
+
+                      <center><h3>Nivel Academico</h3></center>
+
+             <div class="panel panel-primary">
+                  <div class="panel-heading" >
+                    <form class="form-inline" action="/agrega_nivel_sol/{{datos.0[0]}}/{{niveles.0[0]}}" method="post">
+                        <div class="form-row">
+                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="hidden" name="cannv" id="cannv" value="{{datos.0[0]}}" >
+                             <label for="nv">Nivel academico</label>&nbsp;&nbsp;&nbsp;
+                             <select name="nv" id="nv" class="form-control"required>
+                             <option value="" selected>Choose...</option>
+                                 {%
+                                     for nivel in niveles
+                                 %}
+                                     <option value="{{ nivel.0 }}">{{ nivel.1 }}</option>
+                                {%   endfor %}
+                             </select>
+                            <label for="car">Carrera</label>&nbsp;&nbsp;&nbsp;
+                             <select name="car" id="car" class="form-control"required>
+                             <option value="" selected>Choose...</option>
+                                 {%
+                                     for nivel in carrerasN
+                                 %}
+                                     <option value="{{ nivel.0 }}">{{ nivel.1 }}</option>
+                                {%   endfor %}
+                             </select>&nbsp;&nbsp;&nbsp;
+<label for="ins">Institucion</label>&nbsp;&nbsp;&nbsp;
+                             <input type="text" class="form-control" name="ins" id="ins" placeholder="institucion" required>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+                         </div>&nbsp;&nbsp;&nbsp;
+                        <button type="submit" class="btn btn-primary">Agrega nivel</button>
+                    </form>
+                  </div>
+                  <br>
+                  <div class="panel-body">
+                        <center>
+                        <table width="80%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+                          <thead>
+                            <tr>
+                              <td style="color:white;" bgcolor="black">Nivel academico</td>
+                                <td style="color:white;" bgcolor="black">Carrera</td>
+                                <td style="color:white;" bgcolor="black">Institucion</td>
+
+                              <td style="color:white;" bgcolor="black"></td>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {% for funcionC in nivelesC %}
+                              <tr>
+                                <td>
+                                  {{ funcionC.2 }}
+                                </td>
+                                <td>
+                                  {{ funcionC.7 }}
+                                </td>
+                                   <td>
+                                  {{ funcionC.3 }}
+                                </td>
+                                <td  bgcolor="#3C3EC5" width="60">
+                                  <center><a href="/bo_nivel_sol/{{ funcionC.0 }}/{{ funcionC.5 }}/{{ funcionC.6 }}" style="color:#FFFFFF;">Borrar</a></center>
+
+                                </td>
+
+                              </tr>
+                            {% endfor %}
+                          </tbody>
+                        </table>
+                        </center>
+
+                  </div>
+            </div>
+
+{% endblock %}

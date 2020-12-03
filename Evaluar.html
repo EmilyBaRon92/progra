@@ -1,0 +1,147 @@
+
+        {% extends "layout.html" %}
+{% block content %}
+
+<center><h3>Solicitud</h3></center>
+<br>
+<table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+              <thead>
+                <tr>
+                   <td style="color:#FFFFFF" bgcolor="262626">Area</td>
+                  <td style="color:#FFFFFF" bgcolor="262626">Puesto</td>
+                  <td style="color:#FFFFFF" bgcolor="262626">Carrera</td>
+                  <td style="color:#FFFFFF" bgcolor="262626" >Nivel academico</td>
+                  <td style="color:#FFFFFF" bgcolor="262626">Fecha de solicitud</td>
+                  <td style="color:#FFFFFF" bgcolor="262626">Vacantes</td>
+          <td style="color:#FFFFFF" bgcolor="262626" >Estatus</td>
+
+         
+                </tr>
+              </thead>
+              <tbody>
+                {% for dato in solicitud %}
+                  <tr>
+                    <td>
+                      {{ dato.4 }}
+                    </td>
+                       <td>
+                      {{ dato.6 }}
+                    </td>
+                     <td>
+                      {{ dato.10 }}
+                    </td>
+                       <td>
+                      {{ dato.8 }}
+                    </td>
+                       <td>
+                      {{ dato.1 }}
+                    </td>
+                    <td>
+                      {{ dato.2 }}
+                    </td>
+                     <td>
+                      {{ dato.12 }}
+                    </td>
+                  
+                   
+                
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+
+
+           <br>
+           <center><h3>Solicitantes seleccionados</h3></center>
+           <br>
+           <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+              <thead>
+
+                <tr>
+                  <td style="color:#FFFFFF" bgcolor="262626">CURP</td>
+                  <td style="color:#FFFFFF" bgcolor="262626">Nombre</td>
+                  <td style="color:#FFFFFF" bgcolor="262626">Nivel Academico</td>
+                  <td style="color:#FFFFFF" bgcolor="262626">Carrera</td>
+                  <td style="color:#FFFFFF" bgcolor="262626"></td>
+                  <td style="color:#FFFFFF" bgcolor="262626"></td>
+               
+                </tr>
+              </thead>
+              <tbody>
+                {% for candidato in can_selec %}
+                  <tr>
+                    <td>
+                      {{ candidato.0 }}
+                    </td>
+                    <td>
+                      {{ candidato.1 }}
+                    </td>
+                    <td>
+                      {{ candidato.4 }}
+                    </td>
+                    <td>
+                      {{ candidato.5 }}
+                    </td>
+                    <td  bgcolor="#00C56C" width="60">
+                      <center><a href="/bo_solicitante/{{candidato.0}}/{{idSolicitud}}" style="color:#FFFFFF;">Borrar</a></center>
+                    </td>
+
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </td>
+        </tr>
+    
+
+           <br>
+           <center><h3>Posibles candidatos</h3></center>
+           <br>
+           <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+              <thead>
+
+                <tr>
+                  <td style="color:#FFFFFF" bgcolor="262626">CURP</td>
+                  <td style="color:#FFFFFF" bgcolor="262626">Nombre</td>
+                  <td style="color:#FFFFFF" bgcolor="262626">Nivel Academico</td>
+                  <td style="color:#FFFFFF" bgcolor="262626">Carrera</td>
+                  <td style="color:#FFFFFF" bgcolor="262626"></td>
+                  <td style="color:#FFFFFF" bgcolor="262626"></td>
+                </tr>
+              </thead>
+              <tbody>
+                {% for candidato in candidatos %}
+                  <tr>
+
+
+                    <td>
+                      {{ candidato.0 }}
+                    </td>
+                    <td>
+                      {{ candidato.1 }}
+                    </td>
+                    <td>
+                      {{ candidato.3 }}
+                    </td>
+                    <td>
+                      {{ candidato.4 }}
+                    <td  bgcolor="#00C56C" width="60">
+                      <center><a href="/muestra_solicitante/{{candidato.0}}/{{idSolicitud}}" style="color:#FFFFFF;">Perfil</a></center>
+                    </td>
+
+                    <td  bgcolor="#00C56C" width="60">
+                      <center><a href="/ins_candidato/{{candidato.0}}/{{idSolicitud}}" style="color:#FFFFFF;">Selecionar</a></center>
+                    </td>
+            
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <br>
+        <br>
+        <center><a href="/asignacion_can" class="btn btn-primary">Regresar a las solicitudes</a></center>
+
+<!----->
+{% endblock %}

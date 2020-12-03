@@ -1,0 +1,28 @@
+<body>{% extends "layout.html" %}
+
+{% block content %}
+
+
+    <form action="/edita_funcion/{{dato}}" method="post">
+        <div class="form-group col-md-4">
+            <p><h2>Editar funcion</h2><p>
+
+            <p><h4>Descripción</h4><p>
+            {% for descripcion in des %}
+            <input name="descripcion" rows="5" cols="65" class="form-control" value="{{descripcion.0}}" required>
+            {% endfor %}
+            <br>
+               <br>
+               <br>
+
+
+
+
+                      <button class="btn btn-primary">Actualiza</button>
+
+</div>
+    </form>
+
+{% endblock %}
+</body>
+

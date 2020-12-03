@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+<body>
+    <!---- Se crea el formulario--->
+    <form action="/edita_estadociv/{{dato}}" method="post">
+        <div class="form-group col-md-4">
+            <!---- Se coloca el titulo--->
+            <p><h2>Editar estado civil</h2><p>
+
+            <p><h4>Descripción</h4><p>
+            {% for descripcion in des %}
+            <input type="text" rows="3" cols="50" class="form-control" name="descripcion" id="descripcion" maxlength="90" value="{{descripcion.0}}" required>
+            {% endfor %}
+               <br>
+               <br>
+
+
+
+            <!---- Se colocan los botones--->
+            <button class="btn btn-primary">Actualiza</button>
+
+</div>
+    </form>
+
+{% endblock %}
+</body>

@@ -1,0 +1,65 @@
+{% extends "layout.html"%}
+{% block content %}
+ <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+       <tbody>
+        <tr>
+          <td  bgcolor="#FFFFFF" valign="top">
+            <h3>Solicitudes registradas</h3>
+            <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+              <thead>
+                <tr>
+                   <td style="color:#FFFFFF" bgcolor="262626">Area</td>
+                  <td style="color:#FFFFFF" bgcolor="262626">Puesto</td>
+                  <td style="color:#FFFFFF" bgcolor="262626">Carrera</td>
+                  <td style="color:#FFFFFF" bgcolor="262626" >Nivel academico</td>
+                  <td style="color:#FFFFFF" bgcolor="262626">Fecha de solicitud</td>
+                  <td style="color:#FFFFFF" bgcolor="262626">Vacantes</td>
+          <td style="color:#FFFFFF" bgcolor="262626" >Estatus</td>
+
+                    <td style="color:#FFFFFF" bgcolor="262626"></td>
+                    <td style="color:#FFFFFF" bgcolor="262626"></td>
+                </tr>
+              </thead>
+              <tbody>
+                {% for dato in datos %}
+                  <tr>
+                    <td>
+                      {{ dato.4 }}
+                    </td>
+                       <td>
+                      {{ dato.6 }}
+                    </td>
+                     <td>
+                      {{ dato.10 }}
+                    </td>
+                       <td>
+                      {{ dato.8 }}
+                    </td>
+                       <td>
+                      {{ dato.1 }}
+                    </td>
+                    <td>
+                      {{ dato.2 }}
+                    </td>
+                     <td>
+                      {{ dato.12 }}
+                    </td>
+                  
+                   <td bgcolor="#129OC2" width="60">
+                      <center><a  style="color:#FFFFFF;" href="/sel_calif_tecnica/{{dato.0}}" >candidatos</a></center>
+                    </td>
+                    <td  bgcolor="#00C56C"  width="60">
+                      <center><a  style="color:#FFFFFF;" href="/termina_solicitud/{{dato.0}}" >Terminar</a></center>
+                    </td>
+                
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+{% endblock %}
