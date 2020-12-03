@@ -1,0 +1,57 @@
+
+{% extends "layout.html" %}
+{% block content %}
+<body>
+
+ <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+       <tbody>
+        <tr>
+          <td  bgcolor="#FFFFFF" valign="top">
+            <br>
+            <h2><a href="/nvo_contacto">Agregar nuevo contacto</a></h2>
+            <br>
+            <h3>Contactos registrados</h3>
+            <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+              <thead>
+                <tr>
+                  <td style="color:#FFFFFF" bgcolor="262626">Nombre</td>
+                  <td style="color:#FFFFFF" bgcolor="262626">Domicilio</td>
+                  <td style="color:#FFFFFF" bgcolor="262626">Razon Social</td>
+                  <td style="color:#FFFFFF" bgcolor="262626">Telefono</td>
+                    <td style="color:#FFFFFF" bgcolor="262626"></td>
+                    <td style="color:#FFFFFF" bgcolor="262626"></td>
+                </tr>
+              </thead>
+              <tbody>
+                {% for nivel in niveles %}
+                  <tr>
+                    <td>
+                      {{ nivel.1 }}
+                    </td>
+                     <td>
+                      {{ nivel.2 }}
+                    </td>
+                    <td>
+                      {{ nivel.3 }}
+                    </td>
+                    <td>
+                      {{ nivel.4 }}
+                    </td>
+
+                    <td bgcolor="#129OC2" width="60">
+                      <center><a href="/ed_contacto/{{nivel.0}}" style="color:#FFFFFF;">Editar</a></center>
+                    </td>
+                    <td  bgcolor="#00C56C" width="60">
+                      <center><a href="/bo_contacto/{{nivel.0}}" style="color:#FFFFFF;">Borrar</a></center>
+                    </td>
+
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+{% endblock %}

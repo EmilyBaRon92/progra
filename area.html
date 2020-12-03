@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+      <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+       <tbody>
+        <tr>
+           <br>
+           <right><h2><a href="/nvo_area">Agregar nueva área</a></h2></right>
+           <br>
+           <h3>Áreas registradas</h3>
+           <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+              <thead>
+
+                <tr>
+                  <td style="color:#FFFFFF" bgcolor="262626">Nombre</td>
+                  <td style="color:#FFFFFF" bgcolor="262626">Descripcion</td>
+                  <td style="color:#FFFFFF" bgcolor="262626"></td>
+                  <td style="color:#FFFFFF" bgcolor="262626"></td>
+                </tr>
+              </thead>
+              <tbody>
+                {% for area in areas %}
+                  <tr>
+                    <td>
+                      {{ area.1 }}
+                    </td>
+                    <td>
+                      {{ area.2 }}
+                    </td>
+                    <td bgcolor="#129OC2" width="60">
+                      <center><a href="/edita_area/{{area.0}}" style="color:#FFFFFF;">Editar</a></center>
+                    </td>
+                    <td  bgcolor="#00C56C" width="60">
+                      <center><a href="/borrar_area/{{area.0}}" style="color:#FFFFFF;">Borrar</a></center>
+                    </td>
+
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+{% endblock %}

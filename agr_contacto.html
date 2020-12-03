@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<form action="/agrega_contacto" method="post">
+   <div class="form-group col-md-4">
+   <p><h2>Agregar nuevo contacto</h2></p>
+   <p><h4> Nombre del contacto:</h4></p>
+   <input type="text" class="form-control" id="Nombre" rows="5" cols="50" placeholder="Nombre del contacto" name="Nombre" required>
+
+   <p><h4> Domicilio:</h4></p>
+   <input type="text" class="form-control" id="domicilio" rows="5" cols="50" placeholder="Domicilio" name="domicilio" required>
+
+   <p><h4> Razon Social:</h4></p>
+   <input type="text" class="form-control" id="razonsocial" rows="5" cols="50" placeholder="Razón social" name="razonsocial" required>
+
+   <p><h4> Teléfono:</h4></p>
+   <input type="text" class="form-control" id="Numero" rows="5" cols="50" placeholder="Número de teléfono" name="Numero" pattern="[0-9]{10}" required>
+    <br>
+    <br>
+    <button class="btn btn-primary">Aceptar</button>
+
+   </div>
+</form>
+
+{% endblock %}

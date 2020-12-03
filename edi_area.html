@@ -1,0 +1,34 @@
+ {% extends "layout.html" %}
+
+{% block content %}
+
+<form action="/modifica_area/{{area.0}}" method="post">
+    <div class="form-group col-md-4">
+    </div>
+    <div class="form-group col-md-4">
+         <div class="col">
+
+         <p><h2> Edita el Area </h2></p>
+
+         <p><h4> Nombre:</h4>
+         <p><input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre del Area" value="{{area.1}}" required>
+
+         <p><h4> Descripcion:</h4>
+         <input type="text="class="form-control" name="descripcion" id="descripcion"  placeholder="Descripcion" align="left" value="{{area.2}}" required>
+
+         <br>
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+
+
+        <br>
+        <br>
+        <br>
+
+     </div>
+     </div>
+
+
+</form>
+
+
+{% endblock %}
