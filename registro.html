@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<!--pone el titulo-->
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+</head>
+<body>
+<!--pone el fondo-->
+    <style>
+        body{ background-color: #FFFFFF;}
+    </style>
+{% extends "layout.html" %}
+{% block content %}
+<form action="/registrar" method="post">
+        <div class="form-group col-md-4">
+        </div>
+        <div class="form-group col-md-4">
+            <div class="col">
+            <p><h2>Registro de Usuario</h2><p>
+            <p><h4>Usuario</h4></p>
+            <input type="text" class="form-control" name="user" id="user" placeholder="" required>
+            <p><h4>Contraseña</h4></p>
+            <input type="password" class="form-control" name="password" id="password" placeholder="" required>
+            <p><h4>Nombre</h4></p>
+            <input type="text" class="form-control" name="nombre" id="nombre" placeholder="" required>
+            <br>
+            <br>
+            <button class="btn btn-primary">Registrar</button>
+            </div>
+            </div>
+</form>
+</body>
+</html>
+
+{% endblock %}

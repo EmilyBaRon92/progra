@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+{% extends "layout.html" %}
+{% block content %}
+      <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+       <tbody>
+        <tr>
+            <right><h2 ><a href="/registro">Agrega usuario</a></h2></right>
+          <br>
+          <br>
+            <h3>Usuarios registrados</h3>
+            <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+              <thead>
+                <tr>
+                  <td style="color:#FFFFFF" bgcolor="262626">usuario</td>
+
+                  <td style="color:#FFFFFF" bgcolor="262626"></td>
+                  <td style="color:#FFFFFF" bgcolor="262626"></td>
+                </tr>
+              </thead>
+              <tbody>
+                {% for perfil in perfiles %}
+                  <tr>
+                    <td style="color:#000000" bgcolor="#FFFFFF">
+                      {{ perfil.1 }}
+                    </td>
+
+                    <td bgcolor="#129OC2" width="60">
+                      <center><a href="/ed_usuario/{{perfil.0}}" style="color:#FFFFFF;">Editar</a>
+                    </td>
+                    <td  bgcolor="#00C56C" width="60">
+                      <center><a href="/bo_usuario/{{perfil.0}}" style="color:#FFFFFF;">Borrar</a>
+                    </td>
+
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+        </tr>
+      </tbody>
+    </table>
+
+
+{% endblock %}
+
+</html>

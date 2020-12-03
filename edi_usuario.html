@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+
+{% block content %}
+            <center><h3>Edita usuario</h3></h3></center>
+            <form action="/modifica_usuario/{{puestos.0[0]}}" method="post">
+              <div class="form-row">
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <label for="descripcion">Usuario</label>
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <label for="descripcion">Contraseña</label>
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                  <label for="descripcion">Nombre</label>
+              </div>
+              <div class="form-row">
+
+                <div class="col">
+                    <input type="text" class="form-control" name="descripcion" id="descripcion" value="{{pue_habs.0[1]}}" required>
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" name="password" id="password" value="{{pue_habs.0[2]}}" required>
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" name="nombre" id="nombre" value="{{pue_habs.0[3]}}" required>
+                </div>
+
+
+
+
+              </div>
+
+             <br>
+             <br>
+              <button type="submit" class="btn btn-primary">Actualiza</button>
+
+            </form>
+<!-- -----------------------------------------------------------------  -->
+            <br>
+            <center><h3> Perfil asociado</h3></center>
+
+             <div class="panel panel-primary">
+                  <div class="panel-heading" >
+                    <form class="form-inline" action="/agrega_perfil_usuario" method="post">
+                        <div class="form-row">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="hidden" name="pto" id="pto" value="{{puestos.0[0]}}" >
+                             <label for="habil">Perfiles</label>&nbsp;&nbsp;&nbsp;
+                             <select name="habil" id="habil" class="form-control" required>
+                             <option value="" selected>Choose...</option>
+                                 {%
+                                     for hab in habs
+                                 %}
+                                     <option value="{{ hab.0 }}">{{ hab.1 }}</option>
+                                {%   endfor %}
+                             </select>&nbsp;&nbsp;&nbsp;
+                         </div>&nbsp;&nbsp;&nbsp;
+                        <button type="submit" class="btn btn-primary">Cambia perfil</button>
+                    </form>
+                  </div>
+                  <br>
+                  <div class="panel-body">
+                        <center>
+                        <table width="80%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+                          <thead>
+                            <tr>
+                              <td style="color:white;" bgcolor="black">Perfil</td>
+
+
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {% for puesto in pue_habs %}
+                              <tr>
+                                <td>
+                                  {{ puesto.6 }}
+                                </td>
+
+                              </tr>
+                            {% endfor %}
+                          </tbody>
+                        </table>
+                        </center>
+                  </div>
+            </div>
+
+{% endblock %}
